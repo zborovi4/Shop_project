@@ -1,0 +1,25 @@
+<!--
+ - Created by OleksandrZborovskyi on 19.01.2022.
+ -->
+
+<!-- Basket Button -->
+<template>
+    <lightning-button
+            variant="brand"
+            class="slds-var-p-vertical_xx-small"
+            label={basketLable}
+            onclick={openBasket}>
+    </lightning-button>
+    <c-basket-modal
+            show-basket={showBasket}
+            products-data={data}
+            show-positive={showPositiveButton}
+            positive-button-label={positiveButtonLabel}
+            show-negative={showNegativeButton}
+            onpositive={closeModalBasket}
+            onclosebasket={closeModalBasket}
+            total-amount={totalAmount}
+            total-quantity={totalQuantity}
+            onchangetotalquantity={changeTotalQuantity}>
+    </c-basket-modal>
+</template>

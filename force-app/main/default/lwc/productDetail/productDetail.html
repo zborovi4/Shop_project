@@ -1,0 +1,50 @@
+<!--
+ - Created by OleksandrZborovskyi on 12.01.2022.
+ -->
+
+<!-- Product Detail -->
+<template>
+    <template if:true={product}>
+        <div class="container">
+            <div class="slds-text-heading_small">{product.fields.Name.value}</div>
+            <img src={productImageLink} class="product-img-detail"  />
+            <div class="price">{product.fields.Price__c.displayValue}</div>
+            <div class="description">{product.fields.Description.value}</div>
+            <p>
+                <lightning-badge label={product.fields.Category__c.value}></lightning-badge>
+            </p>
+            <div>Available: {product.fields.Available__c.value}</div>
+            <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                    <lightning-layout-item padding="around-small">
+                        <div class="slds-col slds-size_6-of-12">
+                            <label class="slds-form-element__label slds-m-right_none" for="default1">Quantity to order</label>
+                            <div class="slds-form-element__control">
+                                <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_decrement" title="Decrement counter" onclick={handleDecrement}>
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#ban"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Decrement counter</span>
+                                </button>
+                                <input type="number" value={quantityToOrder} min="1" max="1000" id="default1" placeholder="1" class="slds-input slds-input_counter" onchange={handleQuantityToOrderChange} />
+                                <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_increment" title="Increment counter" onclick={handleIncrement}>
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#new"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Increment counter</span>
+                                </button>
+                            </div>
+                        </div>
+                        <lightning-button
+                                variant="brand"
+                                class="slds-var-p-vertical_xx-small"
+                                label="Add to basket"
+                                onclick={handleAddProductToBasket}>
+                        </lightning-button>
+                    </lightning-layout-item>
+            </div>
+        </div>
+    </template>
+    <template if:false={product}>
+        <div class="slds-text-heading_medium">Select a product</div>
+    </template>
+</template>

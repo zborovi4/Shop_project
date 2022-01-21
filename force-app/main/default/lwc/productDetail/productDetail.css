@@ -1,0 +1,13 @@
+/**
+ * Created by OleksandrZborovskyi on 12.01.2022.
+ */
+ebody{
+    margin: 0;
+}
+.price {
+    color: green;
+    font-weight: bold;
+}
+.product-img-detail {
+    max-width: 100px;
+}

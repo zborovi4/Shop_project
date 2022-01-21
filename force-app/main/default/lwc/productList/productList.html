@@ -1,0 +1,18 @@
+<!--
+ - Created by OleksandrZborovskyi on 12.01.2022.
+ -->
+
+<!-- Product List -->
+<template>
+        <template if:true={products}>
+            <lightning-layout pull-to-boundary="medium" multiple-rows="true">
+                <template for:each={products} for:item="product">
+                    <c-product-title
+                            key={product.Id}
+                            product={product}
+                            ontileclick={handleTileClick}>
+                    </c-product-title>
+                </template>
+            </lightning-layout>
+        </template>
+</template>

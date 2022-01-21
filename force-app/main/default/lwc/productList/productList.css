@@ -1,0 +1,8 @@
+/**
+ * Created by OleksandrZborovskyi on 12.01.2022.
+ */
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

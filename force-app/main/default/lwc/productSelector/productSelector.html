@@ -1,0 +1,39 @@
+<!--
+ - Created by OleksandrZborovskyi on 12.01.2022.
+ -->
+
+<!-- Product Selector -->
+<template>
+    <div class="wrapper">
+        <header class="header">Products</header>
+        <div class="slds-form-element">
+            <div class="slds-col slds-size_3-of-12">
+                <lightning-combobox name="categoryComboBox"
+                                    label="Category"
+                                    value={valueCategory}
+                                    onchange={handleCategoryValueUpdate}
+                                    options={categories}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_3-of-12">
+                <lightning-combobox name="modelComboBox"
+                                    label="Model"
+                                    value={valueModel}
+                                    onchange={handleModelValueUpdate}
+                                    options={listModel}>
+                </lightning-combobox>
+            </div>
+        </div>
+        <section>
+            <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <main>
+                    <c-product-list
+                            onproductselected={handleProductSelected}
+                            category={valueCategory} model={valueModel}
+                            onchangelistmodel={handleListModelUpdate}>
+                    </c-product-list>
+                </main>
+            </div>
+        </section>
+    </div>
+</template>
